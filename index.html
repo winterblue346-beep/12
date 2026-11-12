@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1 data-i18n="appName"></h1>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-lang="ja">日本語</button>
+    <button data-lang="en">English</button>
+  </div>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="cardTitle">
+    <div class="card-head">
+      <span id="cardTitle" data-i18n="cardTitle"></span>
+      <span id="rankName" class="rank"></span>
+    </div>
+    <div class="pts"><b id="pts">0</b><span>pt</span></div>
+    <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+    <p id="nextInfo" class="next"></p>
+    <div class="card-foot">
+      <span class="num">1300 0000 0001</span>
+      <span class="bars" aria-hidden="true"></span>
+    </div>
+  </section>
+  <div class="wallet">
+    <span><small data-i18n="wallet"></small><b id="money"></b></span>
+    <button id="charge" class="sub" data-i18n="charge"></button>
+  </div>
+  <p class="note" data-i18n="protoNote"></p>
+
+  <nav class="tabs" aria-label="Menu">
+    <button data-tab="map" class="on" data-i18n="tabGlobe"></button>
+    <button data-tab="actions" data-i18n="tabActions"></button>
+    <button data-tab="post" data-i18n="tabPost"></button>
+    <button data-tab="exchange" data-i18n="tabExchange"></button>
+    <button data-tab="history" data-i18n="tabHistory"></button>
+  </nav>
+
+  <section id="map" class="panel">
+    <div class="globe-wrap" id="globeWrap">
+      <canvas id="globe" role="img" aria-label="Globe"></canvas>
+      <div id="bubble" class="bubble" hidden></div>
+    </div>
+    <div id="chips" class="chips"></div>
+    <p class="note" id="timer" aria-live="off"></p>
+    <p class="note" data-i18n="globeHint"></p>
+  </section>
+
+  <section id="actions" class="panel" hidden></section>
+
+  <section id="post" class="panel" hidden>
+    <form id="postForm">
+      <label><span data-i18n="fTitle"></span><input id="fTitle" required maxlength="60"></label>
+      <label><span data-i18n="fCountry"></span><input id="fCountry" required maxlength="30"></label>
+      <label><span data-i18n="fDesc"></span><textarea id="fDesc" rows="3" maxlength="200"></textarea></label>
+      <button type="submit" class="primary" data-i18n="fSubmit"></button>
+    </form>
+  </section>
+
+  <section id="exchange" class="panel" hidden>
+    <p data-i18n="exInfo"></p>
+    <div class="row">
+      <select id="exAmt" aria-label="pt">
+        <option value="100">100 pt = ¥100</option><option value="300">300 pt = ¥300</option><option value="500">500 pt = ¥500</option>
+      </select>
+      <button id="exBtn" class="primary" data-i18n="exBtn"></button>
+    </div>
+    <div id="coupons"></div>
+  </section>
+
+  <section id="history" class="panel" hidden></section>
+
+  <button id="reset" class="ghost" data-i18n="reset"></button>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
